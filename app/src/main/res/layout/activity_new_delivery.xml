@@ -8,10 +8,51 @@
         android:id="@+id/app_bar"
         layout="@layout/app_bar" />
 
-    <TextView
-        android:layout_below="@id/app_bar"
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Your Location"
+        android:layout_marginStart="14dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginTop="14dp"
+        android:id="@+id/delivererLocation"
+        android:layout_below="@+id/app_bar"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Delivery Destination"
+        android:layout_marginStart="14dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginTop="14dp"
+        android:id="@+id/delivererDestination"
+        android:layout_below="@+id/delivererLocation"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:hint="Your Budget in Dollars"
+        android:layout_marginTop="14dp"
+        android:inputType="numberSigned"
+        android:ems="10"
+        android:id="@+id/delivererBudget"
+        android:layout_below="@+id/delivererDestination"
+        android:layout_alignStart="@+id/delivererDestination" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="time"
+        android:hint="Your Offer Cut Off Time"
+        android:layout_marginTop="14dp"
+        android:ems="10"
+        android:id="@+id/delivererCutOff"
+        android:layout_below="@+id/delivererBudget"
+        android:layout_alignStart="@+id/delivererBudget" />
+
+
+
 
 </RelativeLayout>

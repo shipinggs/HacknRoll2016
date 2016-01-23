@@ -1,10 +1,18 @@
 package com.example.shiping.glut;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.TimePicker;
+
+import java.util.Calendar;
 
 public class NewDeliveryActivity extends AppCompatActivity {
 
@@ -18,6 +26,26 @@ public class NewDeliveryActivity extends AppCompatActivity {
 
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        final EditText editText = (EditText) findViewById(R.id.delivererCutOff);
+        editText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                Calendar mcurrentTime = Calendar.getInstance();
+                int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
+                int minute = mcurrentTime.get(Calendar.MINUTE);
+                TimePickerDialog mTimePicker;
+                mTimePicker = new TimePickerDialog(NewDeliveryActivity.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+                        editText.setText(String.format("%02d", selectedHour) + ":" + String.format("%02d", selectedMinute));
+                    }
+                }, hour, minute, true);//Yes 24 hour time
+                mTimePicker.setTitle("Select Time");
+                mTimePicker.show();
+            }
+        });
     }
 
     @Override
