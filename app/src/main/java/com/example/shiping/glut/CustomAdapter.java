@@ -13,14 +13,16 @@ public class CustomAdapter extends BaseAdapter{
     String [] result1;
     String [] result2;
     String [] result3;
+    String [] result4;
     Context context;
     int [] imageId;
     private static LayoutInflater inflater=null;
-    public CustomAdapter(MainActivity mainActivity, String[] foodList, int[] personImages, String[] foodLocation, String[] distance) {
+    public CustomAdapter(MainActivity mainActivity, String[] foodList, int[] personImages, String[] foodLocation, String[] distance, String[] accountName) {
         // TODO Auto-generated constructor stub
         result1=foodList;
         result2=foodLocation;
         result3=distance;
+        result4=accountName;
         context=mainActivity;
         imageId=personImages;
         inflater = ( LayoutInflater )context.
@@ -49,6 +51,7 @@ public class CustomAdapter extends BaseAdapter{
         TextView tv1;
         TextView tv2;
         TextView tv3;
+        TextView tv4;
         ImageView img;
     }
     @Override
@@ -60,10 +63,12 @@ public class CustomAdapter extends BaseAdapter{
         holder.tv1=(TextView) rowView.findViewById(R.id.food_name);
         holder.tv2=(TextView) rowView.findViewById(R.id.location);
         holder.tv3=(TextView) rowView.findViewById(R.id.distance);
+        holder.tv4=(TextView) rowView.findViewById(R.id.account_name);
         holder.img=(ImageView) rowView.findViewById(R.id.person_photo);
         holder.tv1.setText(result1[position]);
         holder.tv2.setText(result2[position]);
         holder.tv3.setText(result3[position]);
+        holder.tv4.setText(result4[position]);
         holder.img.setImageResource(imageId[position]);
         rowView.setOnClickListener(new OnClickListener() {
             @Override

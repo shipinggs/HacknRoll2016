@@ -6,24 +6,41 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="96dp"
         android:padding="16dp"
         >
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:id="@+id/person_photo"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/account"
             android:layout_marginRight="16dp"
-            />
+        >
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/person_photo"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/account_name"
+                android:layout_centerInParent="true"
+                android:layout_below="@+id/person_photo"
+                android:textSize="10sp"
+                />
+        </RelativeLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/food_name"
-            android:layout_toRightOf="@+id/person_photo"
+            android:layout_toRightOf="@+id/account"
             android:layout_alignParentTop="true"
             android:textSize="20sp"
             />
@@ -32,7 +49,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/location"
-            android:layout_toRightOf="@+id/person_photo"
+            android:layout_toRightOf="@+id/account"
             android:layout_below="@+id/food_name"
             />
 
@@ -40,21 +57,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/distance"
-            android:layout_toRightOf="@+id/food_name"
-            />
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/food_name"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:layout_above="@+id/location" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/order"
-            android:layout_below="@+id/distance"
             android:text="ORDER"
+            android:clickable="true"
+            android:onClick="onClickOrder"
             android:textColor="#FF0000"
-            android:onClick="onOrder"
-            />
-
-
-
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/location" />
 
 
 
