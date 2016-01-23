@@ -1,6 +1,8 @@
 package com.example.shiping.glut;
 
 import android.support.v7.app.AppCompatActivity;
+
+
 import android.content.Intent;
 import android.content.Context;
 import android.os.Bundle;
@@ -8,11 +10,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,11 +20,11 @@ public class MainActivity extends AppCompatActivity {
     ListView lv;
     Context context;
 
-    ArrayList prgmName;
     public static int [] personImages={R.drawable.user7, R.drawable.user5};
     public static String [] foodList={"Chicken Rice", "McDonald's"};
     public static String [] foodLocation={"Bedok 85", "Simei"};
     public static String [] distance={"400m", "100m"};
+    public static String [] accountName={"Cow123", "Potato234"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,11 +36,12 @@ public class MainActivity extends AppCompatActivity {
         context=this;
 
         lv=(ListView) findViewById(R.id.listView);
-        lv.setAdapter(new CustomAdapter(this, foodList, personImages, foodLocation, distance));
+        lv.setAdapter(new CustomAdapter(this, foodList, personImages, foodLocation, distance, accountName));
 
         toolbar = (Toolbar) findViewById(R.id.app_bar);
         toolbar.setTitle("Glut");
         setSupportActionBar(toolbar);
+
     }
 
     @Override
@@ -75,5 +76,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    public void onClickOrder(View view) {
+        Toast.makeText(this, "order ", Toast.LENGTH_LONG).show();
+        startActivity(new Intent(this,FoodOrder.class));
     }
 }
