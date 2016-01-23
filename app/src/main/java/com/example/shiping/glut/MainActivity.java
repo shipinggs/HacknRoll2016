@@ -10,8 +10,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -42,6 +45,20 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setTitle("Glut");
         setSupportActionBar(toolbar);
 
+        ImageView imageView = new ImageView(this);
+        imageView.setImageResource(R.drawable.ic_add);
+
+        FloatingActionButton actionButton = new FloatingActionButton.Builder(this)
+                .setContentView(imageView)
+                .setBackgroundDrawable(R.drawable.selector_button_red)
+                .build();
+
+        actionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, NewDeliveryActivity.class));
+            }
+        });
     }
 
     @Override

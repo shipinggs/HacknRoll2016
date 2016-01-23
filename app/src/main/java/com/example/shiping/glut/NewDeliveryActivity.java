@@ -11,7 +11,6 @@ public class NewDeliveryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        overridePendingTransition(R.anim.animation_enter_right, R.anim.animation_exit_left);
         setContentView(R.layout.activity_new_delivery);
         Toolbar toolbar = (Toolbar) findViewById(R.id.app_bar);
         toolbar.setTitle("Add New Delivery");
