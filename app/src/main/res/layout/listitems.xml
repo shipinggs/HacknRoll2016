@@ -69,7 +69,6 @@
             android:id="@+id/order"
             android:text="ORDER"
             android:clickable="true"
-            android:onClick="onClickOrder"
             android:textColor="#FF0000"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"

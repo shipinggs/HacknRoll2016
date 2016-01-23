@@ -22,9 +22,11 @@ public class MainActivity extends AppCompatActivity {
 
     public static int [] personImages={R.drawable.user7, R.drawable.user5};
     public static String [] foodList={"Chicken Rice", "McDonald's"};
+    public static double [] foodPrice = {4.50, 7.00};
     public static String [] foodLocation={"Bedok 85", "Simei"};
     public static String [] distance={"400m", "100m"};
     public static String [] accountName={"Cow123", "Potato234"};
+    public static double [] delBudget={30.0, 15.0};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         context=this;
 
         lv=(ListView) findViewById(R.id.listView);
-        lv.setAdapter(new CustomAdapter(this, foodList, personImages, foodLocation, distance, accountName));
+        lv.setAdapter(new CustomAdapter(this, foodList, personImages, foodLocation, distance, accountName, foodPrice, delBudget));
 
         toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
@@ -62,8 +64,8 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-    public void onClickOrder(View view) {
-        Toast.makeText(this, "order ", Toast.LENGTH_LONG).show();
-        startActivity(new Intent(this,FoodOrder.class));
-    }
+//    public void onClickOrder(View view) {
+//        Toast.makeText(this, "order ", Toast.LENGTH_LONG).show();
+//        startActivity(new Intent(this,FoodOrder.class));
+//    }
 }
