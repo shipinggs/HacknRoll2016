@@ -7,13 +7,17 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
+    ImageButton FAB;
     ListView lv;
     Context context;
 
@@ -38,6 +42,14 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.app_bar);
         toolbar.setTitle("Glut");
         setSupportActionBar(toolbar);
+
+        FAB = (ImageButton) findViewById(R.id.imageButton);
+        FAB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Hello", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
@@ -59,12 +71,16 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
 
+        if (id == R.id.summary) {
+            startActivity(new Intent(this, SummaryActivity.class));
+        }
+
         if (id == R.id.filter) {
             startActivity(new Intent(this, FilterActivity.class));
         }
 
         if (id == R.id.search) {
-            return true;
+            Toast.makeText(this, "Search", Toast.LENGTH_SHORT).show();
         }
 
         return super.onOptionsItemSelected(item);
