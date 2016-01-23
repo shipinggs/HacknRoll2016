@@ -1,32 +1,30 @@
 package com.example.shiping.glut;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity {
-
-    private Toolbar toolbar;
+public class SummaryActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        overridePendingTransition(R.anim.animation_enter_left, R.anim.animation_exit_right);
-        setContentView(R.layout.activity_main);
-
-        toolbar = (Toolbar) findViewById(R.id.app_bar);
-        toolbar.setTitle("Glut");
+        overridePendingTransition(R.anim.animation_enter_right, R.anim.animation_exit_left);
+        setContentView(R.layout.activity_summary);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.app_bar);
+        toolbar.setTitle("Your Summary");
         setSupportActionBar(toolbar);
+
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_summary, menu);
         return true;
     }
 
@@ -39,14 +37,6 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
-        }
-
-        if (id == R.id.filter) {
-            startActivity(new Intent(this, FilterActivity.class));
-        }
-
-        if (id == R.id.search) {
             return true;
         }
 
