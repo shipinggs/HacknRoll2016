@@ -17,7 +17,6 @@
             </intent-filter>
         </activity>
         <activity
-<<<<<<< HEAD
             android:name=".FilterActivity"
             android:label="@string/title_activity_filter" >
             <meta-data
@@ -37,10 +36,13 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
-=======
+        </activity>
+        <activity
             android:name=".FoodOrder"
             android:label="@string/title_activity_food_order" >
->>>>>>> cb0f8d2d25e6046168ef7f0801f4ff4b0ced2456
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
     </application>
 
