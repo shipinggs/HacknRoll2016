@@ -17,7 +17,6 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
-    ImageButton FAB;
     ListView lv;
     Context context;
 
@@ -42,14 +41,6 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.app_bar);
         toolbar.setTitle("Glut");
         setSupportActionBar(toolbar);
-
-        FAB = (ImageButton) findViewById(R.id.imageButton);
-        FAB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Hello", Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     @Override
