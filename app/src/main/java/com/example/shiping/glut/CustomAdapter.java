@@ -1,6 +1,7 @@
 package com.example.shiping.glut;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -14,15 +15,19 @@ public class CustomAdapter extends BaseAdapter{
     String [] result2;
     String [] result3;
     String [] result4;
+    double[] result5;
+    double[] result6;
     Context context;
     int [] imageId;
     private static LayoutInflater inflater=null;
-    public CustomAdapter(MainActivity mainActivity, String[] foodList, int[] personImages, String[] foodLocation, String[] distance, String[] accountName) {
+    public CustomAdapter(MainActivity mainActivity, String[] foodList, int[] personImages, String[] foodLocation, String[] distance, String[] accountName, double[] foodprice, double[] budget) {
         // TODO Auto-generated constructor stub
         result1=foodList;
         result2=foodLocation;
         result3=distance;
         result4=accountName;
+        result5=foodprice;
+        result6=budget;
         context=mainActivity;
         imageId=personImages;
         inflater = ( LayoutInflater )context.
@@ -70,11 +75,31 @@ public class CustomAdapter extends BaseAdapter{
         holder.tv3.setText(result3[position]);
         holder.tv4.setText(result4[position]);
         holder.img.setImageResource(imageId[position]);
-        rowView.setOnClickListener(new OnClickListener() {
+        View orderselected;
+        orderselected = (TextView) rowView.findViewById(R.id.order);
+        orderselected.setOnClickListener(new OnClickListener() {
+            String finalLocation;
+            String finalDeliverer;
+            String finalFood;
+            double finalBudget;
+            double finalPrice;
+
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                Toast.makeText(context, "You Clicked "+result1[position], Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "You are ordering "+result1[position], Toast.LENGTH_SHORT).show();
+                finalLocation = result2[position];
+                finalDeliverer = result4[position];
+                finalFood = result1[position];
+                finalPrice = result5[position];
+                finalBudget = result6[position];
+                Intent intent = new Intent(context, FoodOrder.class);
+                intent.putExtra("loc", finalLocation);
+                intent.putExtra("del", finalDeliverer);
+                intent.putExtra("food", finalFood);
+                intent.putExtra("price", finalPrice);
+                intent.putExtra("budget", finalBudget);
+                context.startActivity(intent);
             }
         });
         return rowView;
